@@ -2,13 +2,18 @@ package br.com.evandropolo.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.evandropolo.domain.enums.EstadoPagamento;
 import jakarta.persistence.Entity;
 
 @Entity
 public class PagamentoComBoleto extends Pagamento{
 	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataVencimento;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataPagamento;
 	
 	public PagamentoComBoleto() {

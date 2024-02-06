@@ -3,6 +3,8 @@ package br.com.evandropolo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -19,12 +21,15 @@ public class ItemPedidoPK implements Serializable{
 	@JoinColumn(name = "produto_id")
 	private Produto produto;
 	
+	@JsonIgnore
 	public Pedido getPedido() {
 		return pedido;
 	}
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
+	
+	@JsonIgnore
 	public Produto getProduto() {
 		return produto;
 	}
